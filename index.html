@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<div class="text"></div>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>discord.gg/erzhHvmNSH</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', Courier, monospace;
+            color: #0036FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .image-container img {
+            width: 650px; 
+            height: 1;
+            border: px solid #0036FF; 
+            border-radius: 31px;
+            box-shadow: 0 0 30px rgba(20, 54, 255 ); 
+        }
+
+        .info {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #0036FF; 
+            text-shadow: 0px 0px 8px #0036FF, 0px 0px 15px #0036FF, 0px 0px 25px #0036FF; 
+            letter-spacing: 3.5px; 
+            white-space: pre-wrap;
+        }
+        .text {
+            margin-top: 20px;
+            font-size: 3em; 
+            color: #0036FF; 
+            text-shadow: 0px 0px 8px #0036FF, 0px 0px 15px #0036FF, 0px 0px 25px #0036FF; 
+            letter-spacing: 3.5px; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="image-container">
+    <img src="https://cdn.discordapp.com/attachments/1278776110498447423/1399798844769702099/SAudi_FAmily_imresizer_1.png?ex=688a4fc3&is=6888fe43&hm=73cb6672bb44756680bb0cc26d9eaf7e2620a096ade3f71c345dde1d161ec29e&" alt="Discord Image">
+   
+    </div>
+    <audio autoplay loop>
+        <source src="https://cdn.discordapp.com/attachments/1361773811955007729/1361773889251967017/Falcon_Rp.mp4?ex=6889bf03&is=68886d83&hm=0706dea0788ab0d8c3a43c9c93d62bf22753e1a8234609593684aec5cd21db99&" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="info" id="ip-info">
+        <strong>IP: <span id="ip"></span></strong><br>
+        <span><strong>City:</strong> <span id="city"></span></span><br>
+        <span><strong>Region:</strong> <span id="region"></span></span><br>
+        <span><strong>Country:</strong> <span id="country"></span></span><br>
+        <span><strong>Location:</strong> <span id="loc"></span></span><br>
+        <span><strong>Organization:</strong> <span id="org"></span></span><br>
+        <span><strong>Timezone:</strong> <span id="timezone"></span></span>
+    </div>
+ <div class="text">discord.gg/erzhHvmNSH</div>
+
+
+
+    <script>
+         fetch('https://ipinfo.io/json')
+        .then(response => response.json())
+        .then(data => {
+            delete data.readme;
+            const infoDiv = document.getElementById('ip-info');
+            infoDiv.textContent = JSON.stringify(data, null, 2);
+        });
+    </script>
+
+<script>
+  window.onload = () => {
+    window.open("https://discord.gg/erzhHvmNSH", "_blank");
+    window.open("https://discord.gg/erzhHvmNSH", "_blank");
+    window.open("https://discord.gg/erzhHvmNSH", "_blank");
+    window.open("https://discord.gg/erzhHvmNSH", "_blank");
+  };
+</script>
+
+</body>
+</html>
