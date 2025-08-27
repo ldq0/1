@@ -28,6 +28,13 @@
       object-fit: cover;
       z-index: -1;
     }
+    .image-container img {
+        width: 450px; 
+        height: 1;
+        border: px solid #0059ff; 
+        border-radius: 30px;
+        box-shadow: 0 0 30px rgba(); 
+    }
 
     .info {
       font-size: 1.4em;
@@ -45,6 +52,19 @@
 </head>
 <body>
 
+<!-- Splash Screen -->
+<div id="splash">
+  <video autoplay muted playsinline onended="hideSplash()">
+    <source src="https://cdn.discordapp.com/attachments/1368505472503517254/1396451282876891178/Untitled_video_-_Made_with_Clipchamp_2.mp4?ex=687e221a&is=687cd09a&hm=6eccf0ea76aedc09a121af495e72f68787d00a21fa1a8b3976f85bd903dafa90&" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<!-- Original Content -->
+<div class="image-container">
+    <img src="https://cdn.discordapp.com/attachments/1402589288108916738/1409409134700396624/Ayato_Kirishima.gif?ex=68af404b&is=68adeecb&hm=b2644009dee45d0c530e38f4d60b574e130d28508da6443b76ee4ea6a100f87f&" alt="Discord Image">
+</div>
+
   <!-- Background Video -->
   <video id="bg-video" autoplay muted loop playsinline>
     <source src="https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif" type="video/mp4">
@@ -57,16 +77,9 @@
     Your browser does not support the audio element.
   </audio>
 
-  <!-- IP Info Display -->
-  <div class="info" id="ip-info">
-    <strong>IP: <span id="ip"></span></strong><br>
-    <span><strong>City:</strong> <span id="city"></span></span><br>
-    <span><strong>Region:</strong> <span id="region"></span></span><br>
-    <span><strong>Country:</strong> <span id="country"></span></span><br>
-    <span><strong>Location:</strong> <span id="loc"></span></span><br>
-    <span><strong>Organization:</strong> <span id="org"></span></span><br>
-    <span><strong>Timezone:</strong> <span id="timezone"></span></span>
-  </div>
+<div class="info" id="ip-info">
+        <strong>Your IP: <span id="ip"></span></strong>
+    </div>
 
   <!-- Footer Text -->
   <div class="text">discord.gg/Wayg5fBPNc
@@ -115,24 +128,22 @@
 </body>
 </html>
 
+<script>
+    // إخفاء شاشة البداية بعد الفيديو
+    setTimeout(() => {
+        document.getElementById('splash').style.display = 'none';
+    }, 2010);
   
   
 
 
-  <!-- IP Lookup Script -->
-  <script>
-    fetch('https://ipinfo.io/json')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("ip").textContent = data.ip;
-        document.getElementById("city").textContent = data.city;
-        document.getElementById("region").textContent = data.region;
-        document.getElementById("country").textContent = data.country;
-        document.getElementById("loc").textContent = data.loc;
-        document.getElementById("org").textContent = data.org;
-        document.getElementById("timezone").textContent = data.timezone;
-      });
-  </script>
+<script>
+        fetch('https://ipinfo.io/json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip').textContent = data.ip;
+            });
+    </script>
 
 </body>
 </html>
